@@ -1,0 +1,131 @@
+<div class="wrapper">
+
+    <div id="header">
+      <h1>Lista de {{tipodeLista | uppercase}}</h1>
+      <div id="menu">
+        <h3>Mostrar</h3>
+        <button (click)="switchView(true)" title="Vista de Tarjetas" [class.active]="listagrid">
+          TARJETAS
+        </button>
+        <button (click)="switchView(false)" title="Vista de Lista" [class.active]="!listagrid">
+          LISTA
+        </button>
+      </div>
+    </div>
+  
+    <div [ngSwitch]="tipodeLista">
+  
+      <!-- Caso: Series -->
+      <ng-container *ngSwitchCase="'series'">
+        <ng-container *ngIf="listagrid; else listView">
+          <!-- Vista de Tarjetas -->
+          <div class="card-container">
+            <div *ngFor="let item of itemList" class="card">
+              <img [src]="item.urlImagen" alt="{{ item.titulo }}" class="card-image">
+              <div class="card-content">
+                <h3 class="title-series">{{ item.titulo }}</h3>
+                <div><strong>Autor:</strong> {{ item.autor }}</div>
+                <div><strong>Fecha:</strong> {{ item.fecha | date: 'd MMMM'}}</div>
+                <div><strong>Ranking:</strong> {{ item.ranking }}</div>
+                <div><strong>Género:</strong> {{ item.genero }}</div>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+  
+      <ng-template #listView>
+        <!-- Vista de Lista -->
+        <ul class="list-container">
+          <li *ngFor="let item of itemList" class="list-item">
+            <img [src]="item.urlImagen" alt="{{ item.titulo }}" class="list-item-image">
+            <div class="list-item-content">
+              <div class="title-series"><strong>{{ item.titulo }}</strong></div>
+              <div><strong>Autor:</strong> {{ item.autor }}</div>
+              <div><strong>Fecha:</strong> {{ item.fecha | date: 'd MMMM'}}</div>
+              <div><strong>Género:</strong> {{ item.genero }}</div>
+              <div><strong>Descripción:</strong> {{ item.descripcion }}</div>              
+            </div>
+          </li>
+        </ul>
+      </ng-template>
+    </ng-container>
+  
+        <!-- Caso: Peliculas -->
+        <ng-container *ngSwitchCase="'peliculas'">
+          <ng-container *ngIf="listagrid; else listView">
+            <!-- Vista de Tarjetas -->
+            <div class="card-container">
+              <div *ngFor="let item of itemList" class="card">
+                <img [src]="item.urlImagen" alt="{{ item.titulo }}" class="card-image">
+                <div class="card-content">
+                  <h3 class="title-peliculas">{{ item.titulo }}</h3>
+                  <div><strong>Autor:</strong> {{ item.autor }}</div>
+                  <div><strong>Fecha:</strong> {{ item.fecha | date: 'd MMMM'}}</div>
+                  <div><strong>Ranking:</strong> {{ item.ranking }}</div>
+                  <div><strong>Género:</strong> {{ item.genero }}</div>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+  
+        <ng-template #listView>
+          <!-- Vista de Lista -->
+          <ul class="list-container">
+            <li *ngFor="let item of itemList" class="list-item">
+              <img [src]="item.urlImagen" alt="{{ item.titulo }}" class="list-item-image">
+              <div class="list-item-content">
+                <div class="title-peliculas"><strong>{{ item.titulo }}</strong></div>
+                <div><strong>Autor:</strong> {{ item.autor }}</div>
+                <div><strong>Fecha:</strong> {{ item.fecha | date: 'd MMMM'}}</div>
+                <div><strong>Género:</strong> {{ item.genero }}</div>
+                <div><strong>Descripción:</strong> {{ item.descripcion }}</div>              
+              </div>
+            </li>
+          </ul>
+        </ng-template>
+      </ng-container>
+  
+          <!-- Caso: Libros -->
+          <ng-container *ngSwitchCase="'libros'">
+            <ng-container *ngIf="listagrid; else listView">
+              <!-- Vista de Tarjetas -->
+              <div class="card-container">
+                <div *ngFor="let item of itemList" class="card">
+                  <img [src]="item.urlImagen" alt="{{ item.titulo }}" class="card-image">
+                  <div class="card-content">
+                    <h3 class="title-libros">{{ item.titulo }}</h3>
+                    <div><strong>Autor:</strong> {{ item.autor }}</div>
+                    <div><strong>Fecha:</strong> {{ item.fecha | date: 'd MMMM'}}</div>
+                    <div><strong>Ranking:</strong> {{ item.ranking }}</div>
+                    <div><strong>Género:</strong> {{ item.genero }}</div>
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+  
+          <ng-template #listView>
+            <!-- Vista de Lista -->
+            <ul class="list-container">
+              <li *ngFor="let item of itemList" class="list-item">
+                <img [src]="item.urlImagen" alt="{{ item.titulo }}" class="list-item-image">
+                <div class="list-item-content">
+                  <div class="title-libros"><strong>{{ item.titulo }}</strong></div>
+                  <div><strong>Autor:</strong> {{ item.autor }}</div>
+                  <div><strong>Fecha:</strong> {{ item.fecha | date: 'd MMMM'}}</div>
+                  <div><strong>Género:</strong> {{ item.genero }}</div>
+                  <div><strong>Descripción:</strong> {{ item.descripcion }}</div>
+                </div>
+              </li>
+            </ul>
+          </ng-template>
+        </ng-container>
+    <!-- Caso por Defecto -->
+    <ng-container *ngSwitchDefault>
+      <div class="default-container">
+        <h1>Por favor, selecciona un tipo de lista</h1>
+      </div>
+    </ng-container>
+  
+  </div>
+  </div>
+  

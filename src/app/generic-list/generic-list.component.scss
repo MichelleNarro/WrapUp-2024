@@ -1,0 +1,197 @@
+.wrapper {
+  background-color: #333;
+  color: #fff;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+  #header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    h1 {
+      margin: 20px;
+    }
+
+    #menu {
+      display: flex;
+      align-items: center;
+
+      button {
+        margin: 0px 10px;
+        background-color: #444;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        padding: 8px 12px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+
+        &:hover {
+          background-color: #555;
+        }
+
+        &.active {
+          background-color: #999;
+        }
+      }
+    }
+  }
+
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centra las tarjetas */
+    gap: 20px; /* Espacio entre tarjetas */
+    padding: 20px; /* Espaciado general */
+  }
+
+  .card {
+    &:hover {
+      transform: scale(1.05);
+    }
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: calc((100% / 7) - 20px); /* Divide el ancho en 7 partes, restando el gap */
+    border: 1px solid #333;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+    background-color: #333;
+    color: #fff;
+    transition: transform 0.3s;
+
+    .card-image {
+      width: 100%;
+      height: 320px; /* Haciendo la altura más baja para que se vea más rectangular */
+      object-fit: cover; /* Asegura que la imagen se ajuste y mantenga su proporción */
+    }
+
+    .circular-image-card {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+    }
+
+    .card-content {
+      padding: 10px;
+      width: 90%;
+
+      .title-series {
+        color: #1ed760;
+        max-width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .title-peliculas {
+        color: red;
+        max-width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .title-libros {
+        color: blueviolet;
+        max-width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      div {
+        max-width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    }
+  }
+
+  .list-container {
+    list-style-type: none;
+    padding: 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+
+    .list-item {
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.33);
+      margin: 10px;
+
+      .list-item-image {
+        width: 50px;
+        height: 50px;
+        margin-right: 20px;
+      }
+
+      .list-item-content {
+        flex: 1;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+
+        .title-series {
+          color: #1ed760;
+          max-width: 100%;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+        .title-peliculas {
+          color: red;
+          max-width: 100%;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+        .title-libros {
+          color: blueviolet;
+          max-width: 100%;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+      }
+      
+      .list-item-content div {
+        max-height: 80px;
+        overflow-y: auto;
+        padding-right: 5px;
+      }
+    }
+  }
+}
+@media (max-width: 768px) { 
+  .card {
+    width: 100%; /* 1 tarjeta en móviles pequeños */
+  }
+
+  .list-item {
+    flex-direction: column; /* Apila los elementos en móvil */
+    align-items: flex-start; /* Alinea el texto a la izquierda */
+  }
+
+  .list-item-image {
+    width: 80px; /* Reduce un poco el tamaño de la imagen en móvil */
+    height: 80px;
+    margin-bottom: 10px;
+  }
+
+  .list-item-content {
+    width: 100%; /* Asegura que ocupe todo el ancho en móvil */
+  }
+
+  .list-item-content div {
+    max-height: 100px; /* Un poco más de altura en móvil */
+    font-size: 14px; /* Reduce un poco el tamaño del texto */
+  }
+}

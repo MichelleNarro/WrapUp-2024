@@ -1,0 +1,17 @@
+ <!-- Por favor que funcione de una vez yaaaaaa-->
+<h1> .♡⊹˚₊ Todo el contenido que ví y leí en 2024 ₊˚⊹♡.</h1>
+
+<div class="selector-container">
+    <label for="tipoLista">Selecciona un tipo de lista:</label>
+    <select id="tipoLista" (change)="cambiarLista($event)">
+      <option value="">-- Selecciona --</option>
+      <option value="libros">Libros</option>
+      <option value="peliculas">Películas</option>
+      <option value="series">Series</option>
+    </select>
+  </div>
+  
+  <!-- Mostramos la lista SOLO si se ha seleccionado un tipo -->
+  <app-generic-list *ngIf="tipoSeleccionado" [tipodeLista]="tipoSeleccionado" [itemList]="dataListSeleccionada"></app-generic-list>
+  
+ 
